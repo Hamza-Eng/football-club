@@ -24,5 +24,4 @@ public class Terain {
 	private long id;
 	private String name;
 	private float prix_per_houre;
-	private Adresse adresse;
 }

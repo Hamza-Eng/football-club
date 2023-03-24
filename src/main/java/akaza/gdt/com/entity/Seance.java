@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class Seance {
 	
-	public enum Time {_8_9,_9_10};
+	public enum Time {FROM_8_TO_9,};
 
 	 @CreatedDate
 	    @Column(name = "created_at", nullable = false, updatable = false)
