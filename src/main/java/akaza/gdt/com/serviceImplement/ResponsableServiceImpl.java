@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import akaza.gdt.com.commone.CrudeService;
 import akaza.gdt.com.entity.TeamHeader;
+import akaza.gdt.com.entity.Terain;
 import akaza.gdt.com.service.ResponsableService;
 
 public class ResponsableServiceImpl implements CrudeService<TeamHeader> , ResponsableService{
@@ -29,9 +30,9 @@ public class ResponsableServiceImpl implements CrudeService<TeamHeader> , Respon
 	}
 
 	@Override
-	public Optional<TeamHeader> saveOrUpdate(TeamHeader t) {
+	public Terain saveOrUpdate(TeamHeader t) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return null;
 	}
 
 	@Override

@@ -4,12 +4,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import akaza.gdt.com.commone.CrudeService;
 import akaza.gdt.com.entity.TeamHeader;
+import akaza.gdt.com.entity.Terain;
 import akaza.gdt.com.service.TeamHeaderService;
 
 public class TeameHeaderServiceImpl implements CrudeService<TeamHeader> , TeamHeaderService{
 
+	
 	@Override
 	public List<TeamHeader> getAll() {
 		// TODO Auto-generated method stub
@@ -29,14 +33,14 @@ public class TeameHeaderServiceImpl implements CrudeService<TeamHeader> , TeamHe
 	}
 
 	@Override
-	public Optional<TeamHeader> saveOrUpdate(TeamHeader t) {
+	public Terain saveOrUpdate(TeamHeader t) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return null;
 	}
 
 	@Override
-	public boolean delete() {
-		// TODO Auto-generated method stub
+	public boolean delete(long id) {
+		
 		return false;
 	}
 
