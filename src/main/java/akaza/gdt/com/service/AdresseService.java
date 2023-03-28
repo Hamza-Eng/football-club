@@ -1,5 +1,5 @@
 package akaza.gdt.com.service;
 
-public interface AdresseService {
+public interface AdresseService  {
 
 }

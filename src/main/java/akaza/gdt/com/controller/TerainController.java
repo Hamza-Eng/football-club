@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-import akaza.gdt.com.commone.controller.CrudeController;
+import akaza.gdt.com.commone.CrudeController;
 import akaza.gdt.com.entity.Terain;
 
 @RestController
@@ -22,7 +22,7 @@ public class TerainController implements CrudeController<Terain>{
 	}
 
 	@Override
-	public Optional<Terain> getbyId() {
+	public Optional<Terain> getbyId(long id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}

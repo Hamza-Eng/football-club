@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import akaza.gdt.com.commone.CrudeController;
 import akaza.gdt.com.entity.Terain;
 
 public class TerainController implements CrudeController<Terain>{
@@ -14,11 +15,6 @@ public class TerainController implements CrudeController<Terain>{
 		return null;
 	}
 
-	@Override
-	public Optional<Terain> getbyId() {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
 
 	@Override
 	public List<Terain> search(Map<String, String> cretaria) {
@@ -42,6 +38,12 @@ public class TerainController implements CrudeController<Terain>{
 	public String ping() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Optional<Terain> getbyId(long id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 }

@@ -1,20 +1,31 @@
-package akaza.gdt.com.commone.controller;
+package akaza.gdt.com.controller;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import akaza.gdt.com.commone.CrudeController;
 import akaza.gdt.com.entity.Tecket;
+import akaza.gdt.com.repository.TecketRepository;
 
+@RestController
+@RequestMapping("/Tecket")
 public class TecketController implements CrudeController<Tecket>{
 
 	@Override
 	public List<Tecket> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
-
+	TecketRepository repository;
+	@Override
+	public Optional<Tecket> getbyId(long id) {
+		return repository.findById(id);
+	}
 
 	@Override
 	public List<Tecket> search(Map<String, String> cretaria) {
@@ -34,16 +45,11 @@ public class TecketController implements CrudeController<Tecket>{
 		return false;
 	}
 
+	@GetMapping("ping")
 	@Override
 	public String ping() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Tecket> getbyId(long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return "hello from hamza";
 	}
 
 }
