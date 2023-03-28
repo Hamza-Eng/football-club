@@ -3,12 +3,14 @@ package akaza.gdt.com.entity;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -31,12 +33,17 @@ public class Reservation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	// private Equipe equipe;
+	
+	private Enum seance;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private TeamHeader teamHeader;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Terain terain;
 
-//	private Terain terain;
-//	
-//	
-//	private Seance seance;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Tecket tecket;
 
 	@CreatedDate
 	@Column(name = "created_at", nullable = false, updatable = false)
@@ -45,5 +52,4 @@ public class Reservation {
 	@LastModifiedDate
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
-
 }

@@ -1,5 +1,8 @@
 package akaza.gdt.com.entity;
 
+import java.util.UUID;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +19,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Equipe {
+public class TeamHeader {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String name;
+	@Column(nullable = false)
+	private String name=UUID.randomUUID().toString();
 }

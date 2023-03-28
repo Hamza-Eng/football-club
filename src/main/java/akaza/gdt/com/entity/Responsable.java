@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class Responsable {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String fulleName;
 	private String email;
