@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,13 +24,13 @@ public class AdresseController implements CrudeController<Adresse> {
 	@Override
 	public List<Adresse> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return service.getAll();
 	}
 
 	@Override
-	public Optional<Adresse> getbyId(long id) {
+	public Optional<Adresse> getbyId(@PathVariable(name = "id") long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return service.getbyId(id);
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class AdresseController implements CrudeController<Adresse> {
 	@Override
 	public Adresse saveOrUpdate(Adresse t) {
 		// TODO Auto-generated method stub
-		return null;
+		return service.saveOrUpdate(t);
 	}
 
 	@Override

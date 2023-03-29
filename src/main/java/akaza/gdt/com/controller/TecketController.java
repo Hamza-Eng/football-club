@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,23 +14,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import akaza.gdt.com.commone.CrudeController;
 import akaza.gdt.com.entity.Tecket;
+import akaza.gdt.com.serviceImplement.TecketServiceImpl;
 
 @RestController
 @RequestMapping("/tecket")
 public class TecketController implements CrudeController<Tecket> {
 
 
+	@Autowired
+	private TecketServiceImpl service;
 	@GetMapping("/all")
 	@Override
 	public List<Tecket> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return service.getAll();
 	}
 
 	@GetMapping("/id/{id}")
 	@Override
 	public Optional<Tecket> getbyId(@PathVariable(name = "id") long id) {
-		return null;
+		return service.getbyId(id);
 	}
 
 	@Override
@@ -42,13 +46,13 @@ public class TecketController implements CrudeController<Tecket> {
 	@Override
 	public Tecket saveOrUpdate(Tecket t) {
 		// TODO Auto-generated method stub
-		return null;
+		return service.saveOrUpdate(t);
 	}
 
 	@DeleteMapping("/delete")
 	@Override
 	public boolean delete(long id) {
-		// TODO Auto-generated method stub
+		service.delete(id);
 		return false;
 	}
 

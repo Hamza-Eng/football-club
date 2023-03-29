@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +34,7 @@ public class TeamHeaderController implements CrudeController<TeamHeader> {
 
 	@GetMapping("/id/{id}")
 	@Override
-	public Optional<TeamHeader> getbyId(long id) {
+	public Optional<TeamHeader> getbyId(@PathVariable(name = "id") long id) {
 		// TODO Auto-generated method stub
 		return service.getbyId(id);
 	}
@@ -54,7 +55,7 @@ public class TeamHeaderController implements CrudeController<TeamHeader> {
 	@DeleteMapping("delete")
 	@Override
 	public boolean delete(long id) {
-		// TODO Auto-generated method stub
+		service.delete(id);
 		return false;
 	}
 
