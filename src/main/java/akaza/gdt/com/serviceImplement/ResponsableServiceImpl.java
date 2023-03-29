@@ -36,7 +36,7 @@ public class ResponsableServiceImpl implements CrudeService<TeamHeader> , Respon
 	}
 
 	@Override
-	public boolean delete() {
+	public boolean delete(long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
