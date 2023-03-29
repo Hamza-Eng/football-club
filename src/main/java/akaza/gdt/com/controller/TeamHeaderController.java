@@ -4,21 +4,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import akaza.gdt.com.commone.CrudeController;
 import akaza.gdt.com.entity.TeamHeader;
+import akaza.gdt.com.serviceImplement.TeameHeaderServiceImpl;
 
-public class TeamHeaderController implements CrudeController<TeamHeader>{
+@RestController
+@CrossOrigin
+@RequestMapping("/teamHeader")
+public class TeamHeaderController implements CrudeController<TeamHeader> {
 
+	@Autowired
+	private TeameHeaderServiceImpl service;
+
+	@GetMapping("/all")
 	@Override
 	public List<TeamHeader> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return service.getAll();
 	}
 
+	@GetMapping("/id/{id}")
 	@Override
 	public Optional<TeamHeader> getbyId(long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return service.getbyId(id);
 	}
 
 	@Override
@@ -27,22 +44,26 @@ public class TeamHeaderController implements CrudeController<TeamHeader>{
 		return null;
 	}
 
+	@PostMapping("/add")
 	@Override
-	public Optional<TeamHeader> saveOrUpdate(TeamHeader t) {
+	public TeamHeader saveOrUpdate(TeamHeader t) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return service.saveOrUpdate(t);
 	}
 
+	@DeleteMapping("delete")
 	@Override
-	public boolean delete() {
+	public boolean delete(long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	@GetMapping("/ping")
 	@Override
 	public String ping() {
 		// TODO Auto-generated method stub
-		return null;
+		return "ping=>pong" + this.getClass().getSimpleName();
+
 	}
 
 }

@@ -28,13 +28,13 @@ public class ResponsabeController implements CrudeController<Responsable>{
 	}
 
 	@Override
-	public Optional<Responsable> saveOrUpdate(Responsable t) {
+	public Responsable saveOrUpdate(Responsable t) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return null;
 	}
 
 	@Override
-	public boolean delete() {
+	public boolean delete(long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -42,7 +42,8 @@ public class ResponsabeController implements CrudeController<Responsable>{
 	@Override
 	public String ping() {
 		// TODO Auto-generated method stub
-		return null;
+		return "ping=>pong" + this.getClass().getSimpleName();
+
 	}
 
 }

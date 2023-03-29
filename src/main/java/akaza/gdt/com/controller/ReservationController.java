@@ -4,21 +4,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import akaza.gdt.com.commone.CrudeController;
 import akaza.gdt.com.entity.Reservation;
+import akaza.gdt.com.serviceImplement.ReservationServiceImpl;
 
-public class ReservationController implements CrudeController<Reservation>{
+public class ReservationController implements CrudeController<Reservation> {
+	@Autowired
+	private ReservationServiceImpl service;
 
 	@Override
 	public List<Reservation> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return service.getAll();
 	}
 
 	@Override
 	public Optional<Reservation> getbyId(long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return service.getbyId(id);
 	}
 
 	@Override
@@ -28,21 +33,22 @@ public class ReservationController implements CrudeController<Reservation>{
 	}
 
 	@Override
-	public Optional<Reservation> saveOrUpdate(Reservation t) {
+	public Reservation saveOrUpdate(Reservation t) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return service.saveOrUpdate(t);
 	}
 
 	@Override
-	public boolean delete() {
+	public boolean delete(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return service.delete(5);
 	}
 
 	@Override
 	public String ping() {
 		// TODO Auto-generated method stub
-		return null;
+		return "ping=>pong" + this.getClass().getSimpleName();
+
 	}
 
 }

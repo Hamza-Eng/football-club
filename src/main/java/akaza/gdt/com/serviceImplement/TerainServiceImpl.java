@@ -5,12 +5,14 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import akaza.gdt.com.commone.CrudeService;
 import akaza.gdt.com.entity.Terain;
 import akaza.gdt.com.repository.TerainRepository;
 import akaza.gdt.com.service.TerainService;
 
+@Service
 public class TerainServiceImpl implements CrudeService<Terain>, TerainService {
 	@Autowired
 	private TerainRepository repository;
@@ -40,7 +42,7 @@ public class TerainServiceImpl implements CrudeService<Terain>, TerainService {
 	}
 
 	@Override
-	public boolean delete(long  id) {
+	public boolean delete(long id) {
 		repository.deleteById(id);
 		return true;
 	}
