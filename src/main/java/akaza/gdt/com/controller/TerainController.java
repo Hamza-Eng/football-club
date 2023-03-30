@@ -21,7 +21,7 @@ import akaza.gdt.com.serviceImplement.TerainServiceImpl;
 @CrossOrigin
 @RequestMapping("/Terain")
 public class TerainController implements CrudeController<Terain> {
-	
+
 	@Autowired
 	private TerainServiceImpl service;
 
