@@ -13,21 +13,26 @@ import akaza.gdt.com.entity.TeamHeader;
 import akaza.gdt.com.entity.Terain;
 import akaza.gdt.com.repository.TeamHeaderRepository;
 import akaza.gdt.com.service.TeamHeaderService;
-@Service
-public class TeameHeaderServiceImpl implements CrudeService<TeamHeader> , TeamHeaderService{
 
-	@Autowired
+@Service
+public class TeameHeaderServiceImpl implements CrudeService<TeamHeader>, TeamHeaderService {
+
 	private TeamHeaderRepository repository;
+
+	public TeameHeaderServiceImpl(TeamHeaderRepository repository) {
+		this.repository = repository;
+	}
+
 	@Override
 	public List<TeamHeader> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public Optional<TeamHeader> getbyId(long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return repository.findById(id);
 	}
 
 	@Override
@@ -39,19 +44,19 @@ public class TeameHeaderServiceImpl implements CrudeService<TeamHeader> , TeamHe
 	@Override
 	public TeamHeader saveOrUpdate(TeamHeader t) {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.save(t);
 	}
 
 	@Override
 	public boolean delete(long id) {
-		
+		repository.deleteById(id);
 		return false;
 	}
 
 	@Override
 	public String ping() {
 		// TODO Auto-generated method stub
-		return null;
+		return "pin=>pong";
 	}
 
 }

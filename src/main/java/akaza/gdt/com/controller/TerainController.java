@@ -19,7 +19,7 @@ import akaza.gdt.com.serviceImplement.TerainServiceImpl;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/Terain")
+@RequestMapping("/terain")
 public class TerainController implements CrudeController<Terain> {
 
 	@Autowired

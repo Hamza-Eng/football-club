@@ -22,11 +22,16 @@ import akaza.gdt.com.serviceImplement.TeameHeaderServiceImpl;
 @RequestMapping("/teamHeader")
 public class TeamHeaderController implements CrudeController<TeamHeader> {
 
-	@Autowired
+	//@Autowired
 	private TeameHeaderServiceImpl service;
+	
 
-	@GetMapping("/all")
+	public TeamHeaderController(TeameHeaderServiceImpl service) {
+		this.service = service;
+	}
+
 	@Override
+	@GetMapping("/all")
 	public List<TeamHeader> getAll() {
 		// TODO Auto-generated method stub
 		return service.getAll();

@@ -52,7 +52,7 @@ public class AdresseServiceImpl implements CrudeService<Adresse>, AdresseService
 	@Override
 	public String ping() {
 		// TODO Auto-generated method stub
-		return null;
+		return "ping==>  pong";
 	}
 
 }

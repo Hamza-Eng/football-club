@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +25,8 @@ public class TeamHeader {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private String name ;
 	@Column(nullable = false)
-	private String name = UUID.randomUUID().toString();
+	@Builder.Default
+	private String uniqueId = UUID.randomUUID().toString();
 }
